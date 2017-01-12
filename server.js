@@ -24,7 +24,7 @@ const app = express()
 //
 // app.use(webpackHotMiddleware(compiler))
 
-const port = process.env.npm_config_port ? process.env.npm_config_port : 3000
+
 
 app.use(express.static(__dirname + '/dist'))
 
@@ -54,9 +54,4 @@ function renderPage(appHtml) {
    `
 }
 
-app.listen(port, 'localhost', (err) => {
-  if (err) {
-    console.log(err);
-    return;
-  }
-});
+export default app

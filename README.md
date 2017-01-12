@@ -23,6 +23,9 @@ The app was written according to the instructions that were sent to me. Includin
 4. In the end I styled the application according to the sent Photoshop file, adding some of the features that made the end result stand out a bit (logo, list outline etc.). I am used to SASS, so I used this technology and I am happy with it. I did not divide the .scss file because it is small and the huge amount of files on this stage would make it even harder to manipulate quick changes to the application.
 
 
+5. Last step was deployment, and here I had some issues with finding resource to load JSON from, as well as the problem with babel-node on Heroku. However, during the deployment process I was able to make my npm library and ES6 transpiling smoother, and look at the possibilities of any errors that may rise on other machines. Hope, it will run on yours :)
+
+
 ##Deployment
 ---
 
@@ -42,11 +45,6 @@ To start the application:
   ```
   npm i  
 ```
-
-```
-  npm run postinstall
-```
-
 ```
   npm start
   ```
