@@ -1,0 +1,154 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:100,400);
+@import "normalize.scss";
+
+$main-bg-color: #f1f2f0;
+$header-color: #2f323b;
+$accent-blue: #37bbe4;
+$accent-gray: #e1e0dd;
+$accent-black: #35342f;
+$accent-orange: #ec6b2d;
+$accent-red: #dd6464;
+$max-width: calc(25*30px);
+
+body {
+  background-color: $main-bg-color;
+  color: $accent-black;
+  margin: 0;
+  font-family: 'Raleway', sans-serif;
+}
+
+
+header {
+  height: 10vh;
+  background-color: $header-color;
+}
+
+
+.test-container {
+}
+
+
+.test-search {
+  max-width: $max-width;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: calc(2*30px);
+}
+
+.test-search__input {
+  width: calc(12*30px);
+  height: 30px;
+  padding: 5px;
+  background-color: #f2f2f2;
+  transition: all .3s ease-in;
+
+  &:focus {
+      outline: 0 none;
+      border: 2px solid #417987;
+      width: calc(14*30px);
+  }
+}
+
+.test-search__output {
+  width: 100%;
+  height: 100%;
+  margin: 30px 0;
+
+
+  li {
+    height: 60px;
+    margin: 20px 0;
+
+    .player-name {
+      color: #696c78;
+      font-size: 1.4em;
+    }
+    .player-price {
+      color: #d4d4d4;
+    }
+  }
+}
+
+.test-search__popup {
+  margin-top: 8px;
+  div {
+    padding: 10px
+  }
+  .popup-important {
+    font-weight: bold;
+    border: 1px solid #000;
+    padding: 5px;
+  }
+}
+.main-app-nav {
+  font-size: 2em;
+  text-align: center;
+}
+
+.counter-num-label {
+  color: $accent-orange;
+  padding-top: 1em;
+  font-size: 3em;
+  text-align: center;
+  width: 100%;
+}
+
+.counter-even-label {
+  padding-top: 1em;
+  font-size: 0.75em;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.counter-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 3em;
+
+  button {
+    background-color: #CCC;
+    border: none;
+    height: 30px;
+    width: 80px;
+    margin-left: 1em;
+    margin-right: 1em;
+
+    &:hover {
+      background-color: $accent-gray;
+    }
+  }
+}
+
+footer {
+  font-size: 1.2em;
+  letter-spacing: .02em;
+  text-align: center;
+  height: 12vh;
+  color: #fff;
+  text-transform: uppercase;
+  background-color: $header-color;
+  div {
+    max-width: 1000px;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+    margin: 0 calc(2*30px);
+
+    &:hover {
+      color: $accent-blue;
+    }
+  }
+
+}
