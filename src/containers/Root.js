@@ -1,7 +1,6 @@
 /**
- * Just like our store, we configure a 'Root' component that is
- * required based on the env variable. This component is typically one
- * surrounded by a <Provider>.
+ * I configure a 'Root' component that is
+ * required based on the env variable. The component itself is surrounded by the <Provider>.
  */
 
 let loadedModule = null;

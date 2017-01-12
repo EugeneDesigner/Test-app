@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 
-export default class Contact extends Component {
+export default class Help extends Component {
   render() {
     return (
-      <div>Contacts</div>
+      <div></div>
     )
   }
 }

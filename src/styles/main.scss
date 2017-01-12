@@ -4,10 +4,7 @@
 $main-bg-color: #f1f2f0;
 $header-color: #2f323b;
 $accent-blue: #37bbe4;
-$accent-gray: #e1e0dd;
 $accent-black: #35342f;
-$accent-orange: #ec6b2d;
-$accent-red: #dd6464;
 $max-width: calc(25*30px);
 
 body {
@@ -15,27 +12,35 @@ body {
   color: $accent-black;
   margin: 0;
   font-family: 'Raleway', sans-serif;
+
 }
 
 
 header {
-  height: 10vh;
   background-color: $header-color;
+  padding: 10px;
+  height: 70px;
+
+  img {
+    height: 50px;
+  }
 }
 
 
-.test-container {
-}
+
 
 
 .test-search {
   max-width: $max-width;
+  flex: 4;
   width: 100%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: calc(2*30px);
+  height: calc(100vh - 140px);
+
 }
 
 .test-search__input {
@@ -53,14 +58,25 @@ header {
 }
 
 .test-search__output {
+  overflow: scroll;
   width: 100%;
-  height: 100%;
   margin: 30px 0;
+  position: relative;
+  min-height: 200px;
 
-
+  .player-none {
+    position: absolute;
+    display: block;
+    height: 50px;
+    padding-bottom: 10px;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
   li {
     height: 60px;
     margin: 20px 0;
+    cursor: pointer;
 
     .player-name {
       color: #696c78;
@@ -69,6 +85,8 @@ header {
     .player-price {
       color: #d4d4d4;
     }
+
+
   }
 }
 
@@ -83,53 +101,14 @@ header {
     padding: 5px;
   }
 }
-.main-app-nav {
-  font-size: 2em;
-  text-align: center;
-}
 
-.counter-num-label {
-  color: $accent-orange;
-  padding-top: 1em;
-  font-size: 3em;
-  text-align: center;
-  width: 100%;
-}
-
-.counter-even-label {
-  padding-top: 1em;
-  font-size: 0.75em;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-}
-
-.counter-buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 3em;
-
-  button {
-    background-color: #CCC;
-    border: none;
-    height: 30px;
-    width: 80px;
-    margin-left: 1em;
-    margin-right: 1em;
-
-    &:hover {
-      background-color: $accent-gray;
-    }
-  }
-}
 
 footer {
-  font-size: 1.2em;
+  font-size: .8em;
   letter-spacing: .02em;
   text-align: center;
-  height: 12vh;
-  color: #fff;
+  height: 70px;
+  color: #eaeaeb;
   text-transform: uppercase;
   background-color: $header-color;
   div {
@@ -144,7 +123,7 @@ footer {
   a {
     text-decoration: none;
     color: inherit;
-    margin: 0 calc(2*30px);
+    margin: 0 30px;
 
     &:hover {
       color: $accent-blue;

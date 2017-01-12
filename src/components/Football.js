@@ -1,22 +1,32 @@
-import React, { Component, PropTypes } from 'react';
-import players from './contacts'
-export default class Counter extends Component {
+import React, { Component, PropTypes } from 'react'
+
+
+
+export default class Football extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
       search: '',
-      data: players,
+      data: [],
       show: false
     }
 
     this.updateSearch = this.updateSearch.bind(this)
     this.findPlayer   = this.findPlayer.bind(this)
   }
+  componentWillMount() {
+    this.props.actions.fetchPlayers('Chelsea')
+
+  }
 
 
   updateSearch(e) {
-
+    if (this.state.data.length < 1) {
+      this.setState({
+        data: this.props.football.players
+      })
+    }
     this.setState({search: e.target.value})
   }
 
@@ -32,21 +42,21 @@ export default class Counter extends Component {
       })
     }
   }
-
+  //I chose to put all functions in one function, so you see my solution in its entirety
   findPlayer(e) {
     //if user pushes 'Enter'
     if (e.which == 13 || e.keyCode == 13) {
       //replace the input of the user into a list of pure strings that we can work with
       const filterWords = this.state.search.toLowerCase().replace(/['"]+/g, '').replace(/ +(?= )/g, '').split(' ')
-      let data = players
+      let data = this.props.football.players
       //create boolean to check if the string begins with 'minus' sign
       let reverse = true
       for (let word of filterWords) {
         if (word === 'all') {
-          break
+          data
         }
         //check if word exists and that word is a string
-        if (word && typeof word === 'string') {
+        else if (word && typeof word === 'string') {
           //check if word starts with a 'minus' sign, assign a boolean
           if (word[0] == '-' ) {
             reverse = false
@@ -74,7 +84,7 @@ export default class Counter extends Component {
               }
             )
           }
-          //if a transfer value - use another method of filtering
+          //if a transfer market value - use another method of filtering
             else {
               data.filter(
                 (player) => {
@@ -107,6 +117,7 @@ export default class Counter extends Component {
 
 
   render() {
+
     return (
       <div className="test-search">
         <input className="test-search__input"
@@ -131,7 +142,7 @@ export default class Counter extends Component {
               <li key={player.id}>
                 <div className='player-name'>{player.name}</div>
                 <div className='player-price'> Market price: {player.marketValue.slice(0, -2)}</div></li>
-            )) : <li>Sorry, but no Chelsea player was found. Maybe you are an Arsenal fan?:) </li>}
+            )) : <div className='player-none'>Start typing or try again, if no data is displayed </div>}
           </ul>
         </div>
       </div>
@@ -139,7 +150,7 @@ export default class Counter extends Component {
   }
 }
 
-Counter.propTypes = {
-  counter: PropTypes.number.isRequired,
+Football.propTypes = {
+  football: PropTypes.object.isRequired,
   actions: PropTypes.object.isRequired
 };
